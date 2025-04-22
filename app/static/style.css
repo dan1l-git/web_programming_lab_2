@@ -103,3 +103,20 @@ label {
     font-weight: bold;
     margin-top: 20px;
 }
+
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.flash-messages li {
+    background-color: #f0f4ff;
+    border-left: 6px solid #e74c3c;
+    color: #333;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

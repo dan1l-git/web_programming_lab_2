@@ -11,5 +11,6 @@ class Car(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     model = db.Column(db.String(100), nullable=False)
     year = db.Column(db.Integer, nullable=False)
+    color = db.Column(db.String(50))
     manufacturer_id = db.Column(db.Integer, db.ForeignKey('manufacturers.id'), nullable=False)
 

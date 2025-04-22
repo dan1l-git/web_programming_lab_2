@@ -16,7 +16,8 @@ def add_car():
         model = request.form['model']
         year = int(request.form['year'])
         manufacturer_id = int(request.form['manufacturer_id'])
-        create_car(model, year, manufacturer_id)
+        color = request.form['color']
+        create_car(model, year, manufacturer_id, color)
         return redirect(url_for('main.index'))
     manufacturers = Manufacturer.query.all()
     return render_template('car_form.html', manufacturers=manufacturers)
@@ -28,7 +29,8 @@ def edit_car(car_id):
         model = request.form['model']
         year = int(request.form['year'])
         manufacturer_id = int(request.form['manufacturer_id'])
-        update_car(car_id, model, year, manufacturer_id)
+        color = request.form['color']
+        update_car(car_id, model, year, manufacturer_id, color)
         return redirect(url_for('main.index'))
     manufacturers = Manufacturer.query.all()
     return render_template('car_form.html', car=car, manufacturers=manufacturers)

@@ -2,17 +2,17 @@
 <html>
 <head>
     <title>Форма авто</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"
 </head>
 <body>
-    <h1>{{ car.id if car else 'Нове авто' }}</h1>
+   <h1>
+    {% if car %}
+        Автомобіль №{{ car.id }}: {{ car.manufacturer.name }} {{ car.model }}
+    {% else %}
+        Нове авто
+    {% endif %}
+    </h1>
     <form method="POST">
-        <label>Модель:</label>
-        <input type="text" name="model" value="{{ car.model if car else '' }}" required><br>
-        <label>Рік:</label>
-        <input type="number" name="year" value="{{ car.year if car else '' }}" required><br>
-        <label for="color">Колір:</label>
-        <input type="text" name="color" id="color" value="{{ car.color if car else '' }}" required>
-        <br>
         <label>Виробник:</label>
         <select name="manufacturer_id" required>
             {% for manufacturer in manufacturers %}
@@ -22,6 +22,12 @@
                 </option>
             {% endfor %}
         </select><br>
+        <label>Модель:</label>
+        <input type="text" name="model" value="{{ car.model if car else '' }}" required><br>
+        <label>Рік:</label>
+        <input type="number" name="year" value="{{ car.year if car else '' }}" required><br>
+        <label for="color">Колір:</label>
+        <input type="text" name="color" id="color" value="{{ car.color if car else '' }}" required><br>
         <button type="submit">Зберегти</button>
     </form>
 </body>

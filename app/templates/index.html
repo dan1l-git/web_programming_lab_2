@@ -5,23 +5,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Список автомобілів</h1>
+    <h1>Автопарк</h1>
     <a href="{{ url_for('main.add_car') }}">Додати автомобіль</a>
     <table>
         <tr>
             <th>ID</th>
-            <th>Модель</th>
-            <th>Рік</th>
             <th>Виробник</th>
+            <th>Модель</th>
+            <th>Колір</th>
+            <th>Рік</th>
             <th>Дії</th>
         </tr>
         {% for car in cars %}
         <tr>
             <td>{{ car.id }}</td>
+            <td>{{ car.manufacturer.name }}</td>
             <td>{{ car.model }}</td>
             <td>{{ car.color }}</td>
             <td>{{ car.year }}</td>
-            <td>{{ car.manufacturer.name }}</td>
             <td>
                 <a href="{{ url_for('main.edit_car', car_id=car.id) }}">Редагувати</a>
                 <a href="{{ url_for('main.delete_car_route', car_id=car.id) }}">Видалити</a>

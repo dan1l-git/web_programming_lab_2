@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма авто</title>
+</head>
+<body>
+    <h1>{{ car.id if car else 'Нове авто' }}</h1>
+    <form method="POST">
+        <label>Модель:</label>
+        <input type="text" name="model" value="{{ car.model if car else '' }}" required><br>
+        <label>Рік:</label>
+        <input type="number" name="year" value="{{ car.year if car else '' }}" required><br>
+        <label>Виробник:</label>
+        <select name="manufacturer_id" required>
+            {% for manufacturer in manufacturers %}
+                <option value="{{ manufacturer.id }}"
+                    {% if car and manufacturer.id == car.manufacturer_id %}selected{% endif %}>
+                    {{ manufacturer.name }}
+                </option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Зберегти</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список авто</title>
+</head>
+<body>
+    <h1>Автопарк</h1>
+    <a href="{{ url_for('main.add_car') }}">Додати авто</a>
+    <ul>
+        {% for car in cars %}
+            <li>
+                {{ car.model }} ({{ car.year }}) — Виробник ID: {{ car.manufacturer_id }}
+                <a href="{{ url_for('main.edit_car', car_id=car.id) }}">Редагувати</a>
+                <a href="{{ url_for('main.delete_car_route', car_id=car.id) }}">Видалити</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

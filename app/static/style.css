@@ -22,6 +22,30 @@ a:hover {
     color: #1abc9c;
 }
 
+a.button {
+    display: inline-block;
+    background-color: #2980b9;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+a.button:hover {
+    background-color: #3498db;
+    transform: translateY(-2px);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;

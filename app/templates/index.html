@@ -15,7 +15,6 @@
         {% endif %}
     {% endwith %}
     <h1>Автопарк</h1>
-    <a href="{{ url_for('main.add_car') }}">Додати автомобіль</a>
     <table>
         <tr>
             <th>ID</th>
@@ -39,5 +38,8 @@
         </tr>
         {% endfor %}
     </table>
+    <div class="button-container">
+        <a href="{{ url_for('main.add_car') }}" class="button">Додати автомобіль</a>
+    </div>
 </body>
 </html>
